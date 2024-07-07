@@ -16,7 +16,7 @@
 
     @include responsive(500px) {
       height: 100%;
-      padding: 70px 10px;
+      padding: 90px 10px;
       @include flex(column, null, null, 40px);
     }
     .top {
