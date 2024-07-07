@@ -23,7 +23,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.post(
-      "http://localhost:8700/api/v1/contact/contact-us",
+      "https://naturesave.vercel.app/api/v1/contact/contact-us",
       { ...fields }
     );
     console.log(data);

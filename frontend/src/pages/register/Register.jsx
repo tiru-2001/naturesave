@@ -30,7 +30,7 @@ const Register = () => {
         toast.error("password are not matching");
       } else {
         const { data } = await axios.post(
-          "http://localhost:8700/api/v1/auth/register",
+          "https://naturesave.vercel.app/api/v1/auth/register",
           {
             ...fields,
           }

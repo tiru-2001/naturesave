@@ -23,7 +23,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8700/api/v1/auth/login",
+        "https://naturesave.vercel.app/api/v1/auth/login",
         {
           ...fields,
         }
