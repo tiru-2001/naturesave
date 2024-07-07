@@ -9,6 +9,7 @@
   padding: 5px 30px;
   height: 80px;
   width: 100%;
+  z-index: 9;
   @include flex(row, space-between, center, 0px);
   .logo_section {
     height: 100%;
