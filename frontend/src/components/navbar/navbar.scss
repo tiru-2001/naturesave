@@ -1,0 +1,59 @@
+@import "../../gobalscss/global.scss";
+.header_maincontainer {
+  color: white;
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 5px 30px;
+  height: 80px;
+  width: 100%;
+  @include flex(row, space-between, center, 0px);
+  .logo_section {
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .link_sections {
+    @include flex(row, null, center, 40px);
+    @include responsive(900px) {
+      display: none;
+    }
+  }
+  .mobile_menu_container {
+    display: none;
+    @include responsive(900px) {
+      @include flex(column, null, null, 20px);
+    }
+    .cancel_menu {
+      align-self: flex-end;
+    }
+    .mobile_links {
+      border-radius: 10px;
+      padding: 20px;
+      width: 60vw;
+      position: absolute;
+      right: 10px;
+      top: 100px;
+      height: 80vh;
+      background-color: var(--secondary_color);
+      display: none;
+      @include responsive(900px) {
+        display: flex;
+      }
+
+      @include flex(column, null, center, 20px);
+      .links {
+        font-weight: 500;
+        color: white;
+        flex: 1;
+        @include flex(column, center, center, 20px);
+      }
+    }
+  }
+}

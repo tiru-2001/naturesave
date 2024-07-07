@@ -1,0 +1,92 @@
+@import "../../gobalscss/global.scss";
+.login {
+  height: 100vh;
+  display: flex;
+  padding: 90px 60px;
+  gap: 20px;
+  @include responsive(768px) {
+    height: 100%;
+    @include flex(column, null, null, 10px);
+  }
+  @include responsive(450px) {
+    padding: 100px 20px;
+    @include flex(row, center, center, 0px);
+  }
+  @include responsive(250px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .left {
+    flex: 1;
+
+    @include responsive(450px) {
+      display: none;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      @include responsive(768px) {
+        height: 50%;
+      }
+    }
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      @include responsive(450px) {
+        width: 100%;
+      }
+      .right_section1 {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        p {
+          font-weight: bold;
+        }
+      }
+      .right_section2 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        input {
+          border: none;
+          outline: none;
+          border-bottom: 1px solid gray;
+          font-size: 1.1rem;
+          @include responsive(450px) {
+            font-size: 1rem;
+          }
+        }
+      }
+      .right_section3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        button {
+          padding: 5px 10px;
+          font-size: 1.1rem;
+          background-color: yellow;
+          text-align: center;
+          border: none;
+          border-radius: 5px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+      .links {
+        display: flex;
+        gap: 5px;
+        font-weight: bold;
+      }
+    }
+  }
+}

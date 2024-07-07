@@ -1,0 +1,119 @@
+@import "../../gobalscss/global.scss";
+.main_footerContainer {
+  footer {
+    margin-top: 85px;
+    position: relative;
+    @include flex(column, null, null, 0px);
+    height: 60vh;
+    .top {
+      @include flex(column, null, center, 20px);
+      text-align: center;
+      width: 40%;
+      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      top: -90px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: var(--third_color);
+      opacity: 0.8;
+      @include responsive(768px) {
+        width: 80%;
+      }
+      @include responsive(590px) {
+        gap: 10px;
+      }
+      h1 {
+        font-size: 2rem;
+        @include responsive(590px) {
+          font-size: 1.8rem;
+        }
+        @include responsive(270px) {
+          font-size: 1.5rem;
+        }
+      }
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        @include responsive(590px) {
+          font-size: 1rem;
+        }
+      }
+      .custom_input {
+        padding: 0px 10px;
+        background-color: white;
+        width: 60%;
+        @include flex(row, null, center, 5px);
+        @include responsive(590px) {
+          width: 90%;
+        }
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          padding: 10px 5px;
+        }
+      }
+    }
+    .bottom {
+      flex: 1;
+      // minheight: 300px;
+      @include flex(column, null, null, 0px);
+      .bottom_top {
+        flex: 1;
+        background-color: var(--secondary_color);
+        @include flex(column, center, center, 0px);
+        .bottom_top_container {
+          width: 100%;
+          @include flex(row, center, null, 200px);
+          @include responsive(768px) {
+            gap: 50px;
+            margin-top: 10px;
+          }
+          @include responsive(500px) {
+            @include flex(column, center, center, 30px);
+            padding: 100px 0px 50px;
+          }
+          @include responsive(260px) {
+            @include flex(column, center, center, 30px);
+            padding: 150px 0px 50px;
+          }
+
+          section {
+            text-align: justify;
+            @include flex(column, null, null, 10px);
+            @include responsive(590px) {
+              text-align: center;
+            }
+
+            h3 {
+              color: var(--third_color);
+              margin-bottom: 10px;
+            }
+            .links {
+              font-weight: 400;
+              color: white;
+            }
+          }
+        }
+      }
+      .bottom_bottom {
+        padding: 20px;
+        @include flex(row, space-between, center, 0px);
+        @include responsive(600px) {
+          @include flex(column, null, center, 20px);
+        }
+        .bottom_images {
+          @include flex(row, null, center, 30px);
+          @include responsive(768px) {
+            gap: 20px;
+          }
+        }
+        .bottom_icons {
+          @include flex(row, null, center, 20px);
+        }
+      }
+    }
+  }
+}

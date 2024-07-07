@@ -1,0 +1,246 @@
+@import "../../gobalscss/global.scss";
+
+.home {
+  .hero_section {
+    color: white;
+    @include flex(column, space-between, null, 0px);
+    padding: 200px 30px 0px;
+    height: 90vh;
+    overflow: hidden;
+    background: url("../../assets/banner.png") no-repeat center / cover;
+    @include responsive(1200px) {
+      height: 100%;
+      padding: 100px 20px 0px;
+      @include flex(column, null, null, 40px);
+    }
+
+    @include responsive(500px) {
+      height: 100%;
+      padding: 50px 10px;
+      @include flex(column, null, null, 40px);
+    }
+    .top {
+      width: 60%;
+      @include flex(column, center, center, 30px);
+      margin: 0 auto;
+      text-align: center;
+      @include responsive(1200px) {
+        @include flex(column, null, null, 30px);
+        width: 80%;
+      }
+      @include responsive(500px) {
+        @include flex(column, null, null, 20px);
+        width: 96%;
+      }
+
+      h1 {
+        text-transform: capitalize;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 2px black;
+        @include responsive(1200px) {
+          font-size: 2rem;
+        }
+        @include responsive(500px) {
+          font-size: 1.6rem;
+          word-wrap: break-word;
+        }
+        @include responsive(250px) {
+          font-size: 1.3rem;
+          word-wrap: break-word;
+        }
+      }
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        @include responsive(500px) {
+          font-size: 1rem;
+        }
+      }
+    }
+    .bottom {
+      background-color: rgba(33, 33, 76, 0.326);
+      padding: 40px;
+      @include flex(row, space-between, center, 10px);
+      @include responsive(1200px) {
+        padding: 20px;
+        @include flex(row, null, null, 20px);
+        flex-wrap: wrap;
+      }
+      .bottom_items {
+        @include flex(row, null, center, 10px);
+        .bottom_left {
+          @include responsive(1200px) {
+            img {
+              @include responsive(1200px) {
+                width: 50px;
+              }
+            }
+          }
+          .bottom_right {
+            @include flex(column, null, null, 10px);
+          }
+          h3 {
+            font-size: 1.3rem;
+            @include responsive(1200px) {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .testimonial_sections {
+    padding: 100px 0px;
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin: 30px 0px;
+      text-transform: capitalize;
+    }
+    .testimonial_item_container {
+      padding: 20px;
+      .testimonial_items {
+        text-align: center;
+        padding: 20px;
+        .t_items {
+          box-shadow: 0px 0px 20px 1px gray;
+          padding: 10px;
+          @include flex(column, null, center, 20px);
+          p {
+            color: gray;
+            font-weight: 400;
+          }
+
+          .t_content {
+            @include flex(column, null, center, 10px);
+            h4 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bestseller_section {
+    background-color: var(--secondary_color);
+    padding: 80px;
+    color: white;
+    @include responsive(768px) {
+      padding: 40px 10px;
+    }
+    @include responsive(768px) {
+      padding: 40px 20px;
+    }
+    .bestseller_subsection {
+      @include flex(column, null, null, 20px);
+      .top {
+        @include flex(row, center, center, 30px);
+        @include responsive(1200px) {
+          @include flex(row, null, center, 20px);
+        }
+        @include responsive(768px) {
+          @include flex(row, null, center, 20px);
+        }
+        .lines {
+          width: 26%;
+          height: 5px;
+          background-color: var(--third_color);
+          @include responsive(768px) {
+            height: 2px;
+          }
+        }
+        h2 {
+          font-size: 2rem;
+          text-transform: uppercase;
+          white-space: nowrap;
+          @include responsive(1200px) {
+            font-size: 1.8;
+          }
+          @include responsive(768px) {
+            font-size: 1.5rem;
+          }
+          @include responsive(768px) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .bottom {
+        padding: 10px;
+      }
+    }
+  }
+
+  .homecart_section {
+    padding: 50px;
+    background: var(--ten_percent);
+    min-height: 100vh;
+    @include flex(column, null, null, 40px);
+    @include responsive(768px) {
+      padding: 30px;
+    }
+
+    .top {
+      @include flex(column, null, null, 30px);
+      @include responsive(500px) {
+        @include flex(column, null, null, 15px);
+      }
+      .para {
+        color: var(--third_color);
+        font-weight: 600;
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-size: 2.3rem;
+        width: 40%;
+        font-weight: 600;
+        @include responsive(1200px) {
+          width: 60%;
+        }
+        @include responsive(768px) {
+          width: 80%;
+        }
+        @include responsive(500px) {
+          width: 90%;
+          font-size: 1.5rem;
+          text-align: justify;
+        }
+      }
+      .top_bottom {
+        @include flex(row, null, center, 50px);
+        .line {
+          width: 30%;
+          height: 3px;
+          background-color: var(--third_color);
+          @include responsive(500px) {
+            width: 100%;
+            text-align: justify;
+          }
+        }
+        p {
+          color: black;
+          font-size: 1.4rem;
+          font-weight: 500;
+
+          @include responsive(768px) {
+            font-size: 1.2rem;
+            @include flex(row, null, center, 0px);
+          }
+          @include responsive(358px) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+      @include responsive(1200px) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+  }
+}
