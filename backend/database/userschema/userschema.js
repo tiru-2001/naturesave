@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 const userschema = new mongoose.Schema(
   {
+    isAdmin: { type: Boolean, default: false },
     name: {
       type: String,
       required: true,
@@ -21,5 +22,5 @@ const userschema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const user = mongoose.model("user", userschema);
+const user = mongoose.model('user', userschema);
 export default user;

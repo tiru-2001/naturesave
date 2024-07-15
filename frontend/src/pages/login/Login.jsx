@@ -1,15 +1,15 @@
-import "./Login.scss";
-import login from "../../assets/login.png";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import './Login.scss';
+import login from '../../assets/login.png';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
   const [fields, setFields] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleFields = (e) => {
@@ -23,19 +23,19 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "https://naturesave.vercel.app/api/v1/auth/login",
+        'https://naturesave.vercel.app/api/v1/auth/login',
         {
           ...fields,
         }
       );
       console.log(data);
       if (data.success) {
-        toast.success("use loggedin successfully");
+        toast.success('use loggedin successfully');
         setFields({
-          email: "",
-          password: "",
+          email: '',
+          password: '',
         });
-        navigate("/");
+        navigate('/');
       }
     } catch (e) {
       console.log(e);

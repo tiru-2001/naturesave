@@ -1,17 +1,15 @@
-import {
-  bannerFeatures,
-  bestSelling,
-  homecarts,
-  testimonials,
-} from "../../utilites";
-import { Button, Carousel } from "../../components";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useRef } from "react";
-import "./home.scss";
-import BestSellingCard from "../../components/cards/BestSellingCard";
-import Cartscard from "../../components/cards/cartscards/Cartscard";
+import { bannerFeatures, homecarts, testimonials } from '../../utilites';
+import { Button, Carousel, Product } from '../../components';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { useRef } from 'react';
+import './home.scss';
+import Cartscard from '../../components/cards/cartscards/Cartscard';
+import { useSelector } from 'react-redux';
 const Home = () => {
+  const data = useSelector((c) => {
+    console.log(c);
+  });
   const bane = useRef();
   useGSAP(() => {
     let t1 = gsap.timeline();
@@ -26,21 +24,21 @@ const Home = () => {
         stagger: 0.5,
       })
     );
-    gsap.from("#line1", {
+    gsap.from('#line1', {
       x: -30,
       duration: 1,
       delay: 0.3,
       stagger: 0.3,
     });
 
-    gsap.from("#line2", {
+    gsap.from('#line2', {
       x: 30,
       duration: 1,
       delay: 0.3,
       stagger: 0.3,
     });
 
-    gsap.from(".best_heading", {
+    gsap.from('.best_heading', {
       y: -30,
       duration: 1,
       delay: 0.3,
@@ -58,10 +56,10 @@ const Home = () => {
           </p>
           <section>
             <Button
-              padding={"10px 24px"}
-              title={"Learn More"}
-              bg={"--third_color"}
-              color={"green"}
+              padding={'10px 24px'}
+              title={'Learn More'}
+              bg={'--third_color'}
+              color={'green'}
             />
           </section>
         </section>
@@ -110,16 +108,7 @@ const Home = () => {
             <div className="lines" id="line2" />
           </section>
           <section className="bottom">
-            <Carousel>
-              {bestSelling.map((item) => (
-                <BestSellingCard
-                  img={item.img}
-                  subtitle={item.subtitle}
-                  title={item.title}
-                  price={item.price}
-                />
-              ))}
-            </Carousel>
+            <Product />
           </section>
         </section>
       </section>

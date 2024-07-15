@@ -1,0 +1,5 @@
+@import '../../gobalscss/global.scss';
+.rating_maincontainer {
+  @include flex(row, null, center, 10px);
+  border: 1px solid orange;
+}

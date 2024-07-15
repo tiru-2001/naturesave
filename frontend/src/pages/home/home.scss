@@ -1,4 +1,4 @@
-@import "../../gobalscss/global.scss";
+@import '../../gobalscss/global.scss';
 
 .home {
   .hero_section {
@@ -7,7 +7,7 @@
     padding: 200px 30px 0px;
     height: 90vh;
     overflow: hidden;
-    background: url("../../assets/banner.png") no-repeat center / cover;
+    background: url('../../assets/banner.png') no-repeat center / cover;
     @include responsive(1200px) {
       height: 100%;
       padding: 100px 20px 0px;
@@ -60,7 +60,7 @@
     .bottom {
       background-color: rgba(33, 33, 76, 0.326);
       padding: 40px;
-      @include flex(row, space-between, center, 10px);
+      @include flex(row, space-around, center, 10px);
       @include responsive(1200px) {
         padding: 20px;
         @include flex(row, null, null, 20px);

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  height: auto;
+  width: 150px;
+  border-radius: 3px;
+}
+
+.button {
+  cursor: pointer;
+  user-select: none;
+  font-size: 28px;
+  text-align: center;
+  border: 2px solid rgb(164, 162, 162);
+  // border: 2px solid yellow;
+}
+
+.number {
+  font-size: 28px;
+}
+// .line {
+// 	transform: rotate(90deg);
+//     width:50px;
+// 	height: 1.5px;
+// 	background-color: rgb(164, 162, 162);
+// }

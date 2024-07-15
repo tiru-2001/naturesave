@@ -1,4 +1,4 @@
-@import "../../gobalscss/global.scss";
+@import '../../gobalscss/global.scss';
 .header_maincontainer {
   color: white;
   color: black;
@@ -24,6 +24,21 @@
     @include flex(row, null, center, 40px);
     @include responsive(900px) {
       display: none;
+    }
+    .cart_link {
+      position: relative;
+      .badge {
+        background-color: green;
+        height: 15px;
+        width: 15px;
+        padding: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: -50%;
+        right: 5px;
+        color: white;
+        @include flex(row, center, center, 0px);
+      }
     }
   }
   .mobile_menu_container {

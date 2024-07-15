@@ -1,0 +1,195 @@
+@mixin respond-to($media) {
+  @if $media == 'phone' {
+    @media (max-width: 564px) {
+      @content;
+    }
+  } @else if $media == 'tablet' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $media == 'desktop' {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+.indproduct_container {
+  height: inherit;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0px 30px;
+  @include respond-to('phone') {
+    display: flex;
+    flex-direction: column;
+  }
+  @include respond-to('tablet') {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section_1 {
+    display: flex;
+    gap: 50px;
+    @include respond-to('phone') {
+      display: flex;
+      flex-direction: column;
+    }
+    @include respond-to('tablet') {
+      display: flex;
+      flex-direction: column;
+    }
+    .s1_left {
+      flex: 2;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .s1_right {
+      flex: 1;
+      height: 100%;
+      .s1r_top {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .s1r_topRating {
+          display: flex;
+          .star {
+            display: flex;
+            gap: 10px;
+          }
+          .line {
+            transform: rotate(90deg) translateX(10px);
+            width: 20px;
+            height: 1px;
+            background-color: gray;
+          }
+          .avail {
+            color: green;
+          }
+        }
+        .cost {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+      .s1r_middle {
+        display: flex;
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 20px;
+        .buy {
+          display: flex;
+          gap: 50px;
+          button {
+            padding: 10px 20px;
+            height: 50px;
+            width: 100%;
+            font-size: 18px;
+            background-color: #b3a209;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            &:hover {
+              background-color: #d4c535;
+            }
+          }
+        }
+        .cart {
+          button {
+            padding: 10px 20px;
+            height: 50px;
+            width: 100%;
+            font-size: 18px;
+            background-color: #b3a209;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            &:hover {
+              background-color: #d4c535;
+            }
+          }
+        }
+      }
+      .s1r_bottom {
+        .feature {
+          display: flex;
+          gap: 10px;
+          padding: 10px 0;
+          .f_left {
+            padding: 5px;
+          }
+          .f_right {
+            padding: 5px;
+            h3 {
+              font-size: 20px;
+              padding: 5px 0;
+            }
+            p {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .section_2 {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    @include respond-to('phone') {
+      display: flex;
+      flex-direction: column;
+    }
+    @include respond-to('tablet') {
+      display: flex;
+      flex-direction: column;
+    }
+    .s2_description {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+  .section_3 {
+    display: flex;
+    padding: 10px 0;
+    .box {
+      transform: rotate(90deg) translateY(5px);
+      width: 30px;
+      height: 15px;
+      border-radius: 3px;
+      background-color: #b3a209;
+    }
+    h2 {
+      color: #b3a209;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .section_4 {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    @include respond-to('tablet') {
+      gap: 20px;
+      flex-wrap: wrap;
+      .card {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+
+    @include respond-to('phone') {
+      flex-direction: column;
+    }
+  }
+}

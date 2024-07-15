@@ -1,19 +1,19 @@
-import React from "react";
-import "./Register.scss";
-import login from "../../assets/login.png";
-import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import React from 'react';
+import './Register.scss';
+import login from '../../assets/login.png';
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [fields, setFields] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    phone: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phone: '',
   });
 
   const handleFields = (e) => {
@@ -27,25 +27,25 @@ const Register = () => {
     try {
       if (fields.password !== fields.confirmPassword) {
         // setError(true);
-        toast.error("password are not matching");
+        toast.error('password are not matching');
       } else {
         const { data } = await axios.post(
-          "https://naturesave.vercel.app/api/v1/auth/register",
+          'https://naturesave.vercel.app/api/v1/auth/register',
           {
             ...fields,
           }
         );
         console.log(data);
         if (data.success) {
-          toast.success("use registred successfully");
+          toast.success('user registred successfully');
           setFields({
-            name: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-            phone: "",
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            phone: '',
           });
-          navigate("/login");
+          navigate('/login');
         }
       }
     } catch (e) {

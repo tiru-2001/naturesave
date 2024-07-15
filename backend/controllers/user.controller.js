@@ -1,10 +1,10 @@
-import user from "../database/userschema/userschema.js";
-import colors from "colors";
+import user from '../database/userschema/userschema.js';
+import colors from 'colors';
 import {
   checkPassword,
   hashPassword,
-} from "../middlewares/bcrypt/passwordMiddleware.js";
-import jwt from "jsonwebtoken";
+} from '../middlewares/bcrypt/passwordMiddleware.js';
+import jwt from 'jsonwebtoken';
 
 const register = async (req, res) => {
   try {
@@ -12,12 +12,12 @@ const register = async (req, res) => {
     if (!name || !email || !phone || !password) {
       return res
         .status(400)
-        .send({ message: "Please fill the form", success: false });
+        .send({ message: 'Please fill the form', success: false });
     }
     const userExist = await user.findOne({ email: email });
     if (userExist) {
       return res.status(400).send({
-        message: "user already exists",
+        message: 'user already exists',
         success: false,
       });
     }
@@ -31,14 +31,14 @@ const register = async (req, res) => {
     }).save();
     console.log(savedData);
     return res.status(200).send({
-      message: "user registered successfully",
+      message: 'user registered successfully',
       success: true,
       savedData,
     });
   } catch (e) {
     console.log(e);
     return res.status(500).send({
-      messaage: "Internal server error",
+      messaage: 'Internal server error',
       success: false,
     });
   }
@@ -49,33 +49,44 @@ const login = async (req, res) => {
     const userExist = await user.findOne({ email: email });
     if (!userExist) {
       return res.status(400).send({
-        message: "There is no user with that email address",
+        message: 'There is no user with that email address',
         success: false,
       });
     }
     const comparePassword = await checkPassword(password, userExist.password);
     if (!comparePassword) {
       return res.status(400).send({
-        message: "invalid credentials",
+        message: 'invalid credentials',
         success: false,
       });
     }
-    const users = { name: userExist.name, email: userExist.email };
+    const users = {
+      name: userExist.name,
+      email: userExist.email,
+      isAdmin: userExist.isAdmin,
+    };
 
     const token = jwt.sign(users, process.env.JWT_SECRETKEY);
-    const expiryDate = new Date();
-    expiryDate.setFullYear(expiryDate.getFullYear() + 1);
-    return res
-      .cookie("accessToken", token, { httpOnly: true, expires: expiryDate })
-      .status(200)
-      .send({
-        message: "user loged in  successfully",
-        success: true,
-      });
+    // const expiryDate = new Date();
+    // expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+    // return res
+    //   .cookie('accessToken', token, { httpOnly: true, expires: expiryDate })
+    //   .status(200)
+    //   .send({
+    //     message: 'user loged in  successfully',
+    //     success: true,
+    //     username: userExist.name,
+    //     isAdmin: userExist.isAdmin,
+    //   });
+    return res.status(200).send({
+      message: 'user logged in successfully',
+      token: token,
+      userExist,
+    });
   } catch (e) {
     console.log(colors.red.underline(e));
     return res.status(500).send({
-      message: "Something went wrong",
+      message: 'Something went wrong',
       succcess: false,
     });
   }

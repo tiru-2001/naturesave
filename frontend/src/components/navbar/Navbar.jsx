@@ -1,48 +1,50 @@
-"use client";
-import "./navbar.scss";
-import { useGSAP } from "@gsap/react";
-import { IoMenuOutline } from "react-icons/io5";
-import { RxCross2 } from "react-icons/rx";
-import gsap from "gsap";
-import { CiSearch } from "react-icons/ci";
-import { BsCart } from "react-icons/bs";
-import { GoPerson } from "react-icons/go";
-import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+'use client';
+import './navbar.scss';
+import { useGSAP } from '@gsap/react';
+import { IoMenuOutline } from 'react-icons/io5';
+import { RxCross2 } from 'react-icons/rx';
+import gsap from 'gsap';
+import { CiSearch } from 'react-icons/ci';
+import { BsCart } from 'react-icons/bs';
+import { GoPerson } from 'react-icons/go';
+import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // gsap.registerPlugin(ScrollTrigger);
 
 const links = [
-  { path: "/", title: "Home" },
-  { path: "/register", title: "Register" },
-  { path: "/login", title: "Login" },
-  { path: "/services", title: "Services" },
-  { path: "/contact", title: "Contact Us" },
+  { path: '/', title: 'Home' },
+  { path: '/register', title: 'Register' },
+  { path: '/login', title: 'Login' },
+  { path: '/services', title: 'Services' },
+  { path: '/contact', title: 'Contact Us' },
   {
-    path: "/search",
-    title: <CiSearch style={{ fontWeight: "bold", fontSize: "1.5rem" }} />,
+    path: '/search',
+    title: <CiSearch style={{ fontWeight: 'bold', fontSize: '1.5rem' }} />,
   },
   {
-    path: "/cart",
-    title: <BsCart style={{ fontWeight: "bold", fontSize: "1.2rem" }} />,
+    path: '/cart',
+    title: <BsCart style={{ fontWeight: 'bold', fontSize: '1.2rem' }} />,
   },
   {
-    path: "/account",
-    title: <GoPerson style={{ fontWeight: "bold", fontSize: "1.5rem" }} />,
+    path: '/account',
+    title: <GoPerson style={{ fontWeight: 'bold', fontSize: '1.5rem' }} />,
   },
 ];
 
 const Navbar = () => {
+  const { totalQuantity } = useSelector((state) => state.cslice);
   const [toggle, setToggle] = useState(false);
   useGSAP(() => {
     let t1 = gsap.timeline();
-    t1.from(".logo_section", {
+    t1.from('.logo_section', {
       y: -20,
       duration: 1,
       delay: 0.2,
       opacity: 0,
     });
-    t1.from(".linkk", {
+    t1.from('.linkk', {
       y: -20,
       duration: 0.5,
       stagger: 0.3,
@@ -55,11 +57,26 @@ const Navbar = () => {
         <img src={logo} alt="logo" />
       </section>
       <section className="link_sections">
-        {links.map((item, ind) => (
-          <Link className="linkk" key={ind} to={item.path}>
-            {item.title}
-          </Link>
-        ))}
+        {links.map((item, ind) => {
+          if (item.path == '/cart') {
+            return (
+              <section key={ind} className="cart_link linkk">
+                {totalQuantity != 0 && (
+                  <section className="badge">{totalQuantity}</section>
+                )}
+                <Link className="" to={item.path}>
+                  {item.title}
+                </Link>
+              </section>
+            );
+          } else {
+            return (
+              <Link className="linkk" key={ind} to={item.path}>
+                {item.title}
+              </Link>
+            );
+          }
+        })}
       </section>
 
       {/* mobile menu  */}
@@ -67,7 +84,7 @@ const Navbar = () => {
         <section className="menu_icon">
           {!toggle && (
             <IoMenuOutline
-              style={{ fontSize: "1.2rem", cursor: "pointer" }}
+              style={{ fontSize: '1.2rem', cursor: 'pointer' }}
               onClick={() => {
                 setToggle(true);
               }}
@@ -80,9 +97,9 @@ const Navbar = () => {
               {toggle && (
                 <RxCross2
                   style={{
-                    fontSize: "1.2rem",
-                    cursor: "pointer",
-                    color: "white",
+                    fontSize: '1.2rem',
+                    cursor: 'pointer',
+                    color: 'white',
                   }}
                   onClick={() => {
                     setToggle(false);
@@ -91,16 +108,26 @@ const Navbar = () => {
               )}
             </section>
             <section className="links">
-              {links.map((item) => (
-                <Link
-                  onClick={() => {
-                    setToggle(false);
-                  }}
-                  to={item.path}
-                >
-                  {item.title}
-                </Link>
-              ))}
+              {links.map((item, ind) => {
+                if (item.path == '/cart') {
+                  return (
+                    <section key={ind} className="cart_link linkk">
+                      {totalQuantity && (
+                        <section className="badge">{totalQuantity}</section>
+                      )}
+                      <Link className="" to={item.path}>
+                        {item.title}
+                      </Link>
+                    </section>
+                  );
+                } else {
+                  return (
+                    <Link className="linkk" key={ind} to={item.path}>
+                      {item.title}
+                    </Link>
+                  );
+                }
+              })}
             </section>
           </section>
         )}

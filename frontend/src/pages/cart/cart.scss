@@ -1,0 +1,108 @@
+.main_section {
+  // border:2px solid red;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+  background-color: #fbfaf0;
+  .section_1 {
+    font-size: 28px;
+    font-weight: 600;
+    // border: 2px solid green;
+    padding: 20px;
+  }
+  .section_2 {
+    // border: 2px solid blue;
+    display: flex;
+    gap: 70px;
+    padding: 20px;
+
+    .s2_right {
+      border: 1px solid rgb(231, 228, 228);
+      width: auto;
+      flex: 1;
+      border-radius: 15px;
+      padding: 10px;
+      background-color: white;
+      h3 {
+        padding: 10px 0;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .order_detailS2 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .priceList {
+          display: flex;
+          justify-content: space-between;
+          .name {
+            color: gray;
+            font-size: 18px;
+          }
+          .rupees {
+            color: black;
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+      }
+      .apply {
+        display: flex;
+        gap: 10px;
+        padding: 10px 0;
+        .applyButton {
+          padding: 10px 20px;
+          height: max-content;
+          width: 40%;
+          font-size: 16px;
+          background-color: #b3a209;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          &:hover {
+            background-color: #d4c535;
+          }
+        }
+        .promoButton {
+          padding: 10px 20px;
+          height: max-content;
+          width: 60%;
+          font-size: 16px;
+          background-color: rgb(204, 204, 204);
+          color: grey;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          &:hover {
+            background-color: #e2e1de;
+          }
+        }
+      }
+      .checkout {
+        display: flex;
+        padding: 10px 0;
+        .checkoutButton {
+          gap: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 20px;
+          height: max-content;
+          width: 100%;
+          font-size: 16px;
+          background-color: #090351;
+          color: white;
+          text-align: center;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          &:hover {
+            background-color: #211793;
+          }
+        }
+      }
+    }
+  }
+}
