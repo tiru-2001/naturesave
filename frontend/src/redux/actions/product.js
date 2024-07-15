@@ -8,7 +8,8 @@ const addProduct = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        'http://localhost:8700/api/v1/product/add-product',
+        '  https://naturesave.vercel.app/api/v1/product/add-product',
+
         { data }
       );
 
@@ -27,7 +28,7 @@ const getProductBySlug = createAsyncThunk(
   async (slug, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8700/api/v1/product/getindiproduct/${slug}`
+        `    https://naturesave.vercel.app/api/v1/product/getindiproduct/${slug}`
       );
 
       if (data.success) {
@@ -45,7 +46,7 @@ const getProductById = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:8700/api/v1/products/getProductById/:${id}`
+        `https://naturesave.vercel.app/api/v1/products/getProductById/:${id}`
       );
       if (data.success) {
         return data;
@@ -62,7 +63,7 @@ const getAllProducts = createAsyncThunk(
   async (inp, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8700/api/v1/product/getallproducts/`
+        `    https://naturesave.vercel.app/api/v1/product/getallproducts/`
       );
       if (data.success) {
         return data.result;
