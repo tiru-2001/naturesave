@@ -77,6 +77,39 @@ const Home = () => {
           ))}
         </section>
       </section>
+
+      <section className="homecart_section">
+        <section className="top">
+          <p className="para">What we do</p>
+          <h2 className="">
+            Let's explore our services, covering everything you need.
+          </h2>
+          <section className="top_bottom">
+            <div className="line" />
+            <p>
+              Delve into our array of services, meticulously designed to fulfil
+              every aspect of your requirements.
+            </p>
+          </section>
+        </section>
+        <section className="bottom">
+          {homecarts.map((item) => (
+            <Cartscard img={item.img} title={item.title} desc={item.desc} />
+          ))}
+        </section>
+      </section>
+      <section className="bestseller_section">
+        <section className="bestseller_subsection">
+          <section className="top">
+            <div className="lines" id="line1" />
+            <h2 className="best_heading">Best Seller</h2>
+            <div className="lines" id="line2" />
+          </section>
+          <section className="bottom">
+            <Product />
+          </section>
+        </section>
+      </section>
       <section className="testimonial_sections">
         <h2>What our Client Says</h2>
         <section className="testimonial_item_container">
@@ -98,38 +131,6 @@ const Home = () => {
               </section>
             ))}
           </Carousel>
-        </section>
-      </section>
-      <section className="bestseller_section">
-        <section className="bestseller_subsection">
-          <section className="top">
-            <div className="lines" id="line1" />
-            <h2 className="best_heading">Best Seller</h2>
-            <div className="lines" id="line2" />
-          </section>
-          <section className="bottom">
-            <Product />
-          </section>
-        </section>
-      </section>
-      <section className="homecart_section">
-        <section className="top">
-          <p className="para">What we do</p>
-          <h2 className="">
-            Let's explore our services, covering everything you need.
-          </h2>
-          <section className="top_bottom">
-            <div className="line" />
-            <p>
-              Delve into our array of services, meticulously designed to fulfil
-              every aspect of your requirements.
-            </p>
-          </section>
-        </section>
-        <section className="bottom">
-          {homecarts.map((item) => (
-            <Cartscard img={item.img} title={item.title} desc={item.desc} />
-          ))}
         </section>
       </section>
     </section>

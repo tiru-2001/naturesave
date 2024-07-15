@@ -6,47 +6,47 @@ const Stars = ({ star }) => {
     <section>
       <span>
         {star >= 1 ? (
-          <MdOutlineStar style={{ color: 'yellow' }} />
+          <MdOutlineStar style={{ color: 'green' }} />
         ) : star >= 0.5 ? (
-          <MdOutlineStarHalf style={{ color: 'yellow' }} />
+          <MdOutlineStarHalf style={{ color: 'green' }} />
         ) : (
-          <MdOutlineStarBorder style={{ color: 'yellow' }} />
+          <MdOutlineStarBorder style={{ color: 'green' }} />
         )}
       </span>
       <span>
         {star >= 2 ? (
-          <MdOutlineStar style={{ color: 'yellow' }} />
+          <MdOutlineStar style={{ color: 'green' }} />
         ) : star >= 1.5 ? (
-          <MdOutlineStarHalf style={{ color: 'yellow' }} />
+          <MdOutlineStarHalf style={{ color: 'green' }} />
         ) : (
-          <MdOutlineStarBorder style={{ color: 'yellow' }} />
+          <MdOutlineStarBorder style={{ color: 'green' }} />
         )}
       </span>
       <span>
         {star >= 3 ? (
-          <MdOutlineStar style={{ color: 'yellow' }} />
+          <MdOutlineStar style={{ color: 'green' }} />
         ) : star >= 2.5 ? (
-          <MdOutlineStarHalf style={{ color: 'yellow' }} />
+          <MdOutlineStarHalf style={{ color: 'green' }} />
         ) : (
-          <MdOutlineStarBorder style={{ color: 'yellow' }} />
+          <MdOutlineStarBorder style={{ color: 'green' }} />
         )}
       </span>
       <span>
         {star >= 4 ? (
-          <MdOutlineStar style={{ color: 'yellow' }} />
+          <MdOutlineStar style={{ color: 'green' }} />
         ) : star >= 3.5 ? (
-          <MdOutlineStarHalf style={{ color: 'yellow' }} />
+          <MdOutlineStarHalf style={{ color: 'green' }} />
         ) : (
-          <MdOutlineStarBorder style={{ color: 'yellow' }} />
+          <MdOutlineStarBorder style={{ color: 'green' }} />
         )}
       </span>
       <span>
         {star >= 5 ? (
-          <MdOutlineStar style={{ color: 'yellow' }} />
+          <MdOutlineStar style={{ color: 'green' }} />
         ) : star >= 4.5 ? (
-          <MdOutlineStarHalf style={{ color: 'yellow' }} />
+          <MdOutlineStarHalf style={{ color: 'green' }} />
         ) : (
-          <MdOutlineStarBorder style={{ color: 'yellow' }} />
+          <MdOutlineStarBorder style={{ color: 'green' }} />
         )}
       </span>
     </section>
