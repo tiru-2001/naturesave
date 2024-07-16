@@ -13,7 +13,7 @@ dotenv.config();
 app.use(cookieParser());
 app.use(
   cors({
-    // origin: 'https://naturesavefrontend.vercel.app',
+    origin: 'https://naturesavefrontend.vercel.app',
     // origin: 'http://localhost:5173',
   })
 );
