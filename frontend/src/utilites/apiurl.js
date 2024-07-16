@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://naturesave.vercel.app/' });
+const API = axios.create({ baseURL: 'https://naturesave.vercel.app/api/v1/' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
