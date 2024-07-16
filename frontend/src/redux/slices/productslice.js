@@ -62,6 +62,7 @@ const productSlice = createSlice({
       })
       .addCase(getAllProducts.rejected, (state, action) => {
         state.loading = false;
+        console.log(action.payload);
         state.error = action.payload;
       });
   },

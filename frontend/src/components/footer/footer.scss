@@ -1,4 +1,4 @@
-@import "../../gobalscss/global.scss";
+@import '../../gobalscss/global.scss';
 .main_footerContainer {
   footer {
     margin-top: 85px;
@@ -13,7 +13,7 @@
       position: absolute;
       left: 50%;
       transform: translate(-50%);
-      top: -90px;
+      top: -98px;
       padding: 15px;
       border-radius: 8px;
       background-color: var(--third_color);

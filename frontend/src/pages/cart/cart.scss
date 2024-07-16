@@ -1,22 +1,64 @@
+@mixin respond-to($media) {
+  @if $media == 'phone' {
+    @media (max-width: 564px) {
+      @content;
+    }
+  } @else if $media == 'tablet' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $media == 'desktop' {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
 .main_section {
-  // border:2px solid red;
   height: inherit;
   display: flex;
   flex-direction: column;
   padding: 80px;
   background-color: #fbfaf0;
+  @include respond-to('tablet') {
+    flex-direction: column;
+  }
+  @include respond-to('phone') {
+    padding: 30px 5px;
+    margin: 20px 0;
+  }
+  @include respond-to('desktop') {
+    display: flex;
+  }
   .section_1 {
     font-size: 28px;
     font-weight: 600;
-    // border: 2px solid green;
     padding: 20px;
   }
   .section_2 {
-    // border: 2px solid blue;
     display: flex;
     gap: 70px;
     padding: 20px;
-
+    @include respond-to('tablet') {
+      flex-direction: column;
+    }
+    @include respond-to('phone') {
+      padding: 30px 5px;
+      margin: 20px 0;
+    }
+    @include respond-to('desktop') {
+      display: flex;
+    }
+    .s2_left {
+      border: 1px solid rgb(231, 228, 228);
+      width: auto;
+      flex: 2;
+      border-radius: 15px;
+      padding: 10px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
     .s2_right {
       border: 1px solid rgb(231, 228, 228);
       width: auto;

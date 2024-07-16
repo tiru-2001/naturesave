@@ -14,7 +14,7 @@ const Product = () => {
   }, []);
   return (
     <section className="">
-      <Carousel>
+      <Carousel infinite={false} autoplay={false}>
         {data?.map((item) => (
           <BestSellingCard key={item._id} {...item} />
         ))}

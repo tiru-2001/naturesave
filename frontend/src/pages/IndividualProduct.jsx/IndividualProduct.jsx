@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react';
 import './individualproduct.scss';
 import { FaTruckFast } from 'react-icons/fa6';
 import { VscTools } from 'react-icons/vsc';
-import IncDecBtn from '../../components/incdecbtn/IncDecBtn';
 import { Rating } from '../../components';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';

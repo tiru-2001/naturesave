@@ -2,4 +2,7 @@
 .rating_maincontainer {
   @include flex(row, null, center, 10px);
   border: 1px solid orange;
+  @include responsive(1000px) {
+    @include flex(column, null, center, 10px);
+  }
 }

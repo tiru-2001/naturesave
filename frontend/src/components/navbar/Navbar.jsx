@@ -19,6 +19,8 @@ const links = [
   { path: '/login', title: 'Login' },
   { path: '/services', title: 'Services' },
   { path: '/contact', title: 'Contact Us' },
+];
+const mainLinks = [
   {
     path: '/search',
     title: <CiSearch style={{ fontWeight: 'bold', fontSize: '1.5rem' }} />,
@@ -57,26 +59,35 @@ const Navbar = () => {
         <img src={logo} alt="logo" />
       </section>
       <section className="link_sections">
-        {links.map((item, ind) => {
-          if (item.path == '/cart') {
-            return (
-              <section key={ind} className="cart_link linkk">
-                {totalQuantity != 0 && (
-                  <section className="badge">{totalQuantity}</section>
-                )}
-                <Link className="" to={item.path}>
+        <section className="link_sections_left">
+          {links.map((item, ind) => (
+            <Link key={ind} to={item.path}>
+              {item.title}
+            </Link>
+          ))}
+        </section>
+        <section className="link_sections_right">
+          {mainLinks.map((item, ind) => {
+            if (item.path == '/cart') {
+              return (
+                <section key={ind} className="cart_link linkk">
+                  {totalQuantity != 0 && (
+                    <section className="badge">{totalQuantity}</section>
+                  )}
+                  <Link className="" to={item.path}>
+                    {item.title}
+                  </Link>
+                </section>
+              );
+            } else {
+              return (
+                <Link className="linkk" key={ind} to={item.path}>
                   {item.title}
                 </Link>
-              </section>
-            );
-          } else {
-            return (
-              <Link className="linkk" key={ind} to={item.path}>
-                {item.title}
-              </Link>
-            );
-          }
-        })}
+              );
+            }
+          })}
+        </section>
       </section>
 
       {/* mobile menu  */}

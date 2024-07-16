@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loginAction, registerAction } from '../actions/authactions.js';
 const initialState = {
-  userInfo: {},
+  userInfo: null,
   token: null,
   error: null,
   loading: false,

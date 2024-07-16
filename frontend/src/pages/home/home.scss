@@ -129,9 +129,7 @@
     @include responsive(768px) {
       padding: 40px 10px;
     }
-    @include responsive(768px) {
-      padding: 40px 20px;
-    }
+
     .bestseller_subsection {
       @include flex(column, null, null, 20px);
       .top {
@@ -167,6 +165,10 @@
       }
       .bottom {
         padding: 10px;
+
+        @include responsive(768px) {
+          width: 100%;
+        }
       }
     }
   }

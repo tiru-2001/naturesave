@@ -93,8 +93,13 @@ const Home = () => {
           </section>
         </section>
         <section className="bottom">
-          {homecarts.map((item) => (
-            <Cartscard img={item.img} title={item.title} desc={item.desc} />
+          {homecarts.map((item, ind) => (
+            <Cartscard
+              key={ind}
+              img={item.img}
+              title={item.title}
+              desc={item.desc}
+            />
           ))}
         </section>
       </section>
@@ -113,7 +118,7 @@ const Home = () => {
       <section className="testimonial_sections">
         <h2>What our Client Says</h2>
         <section className="testimonial_item_container">
-          <Carousel>
+          <Carousel infinite={true} autoplay={true}>
             {testimonials.map((item) => (
               <section className="testimonial_items" key={item.id}>
                 <section className="t_items">

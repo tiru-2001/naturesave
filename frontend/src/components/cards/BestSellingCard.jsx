@@ -12,7 +12,7 @@ const BestSellingCard = ({
   star,
 }) => {
   return (
-    <Link to={`/product/${slug}`} className="card_container">
+    <Link to={`/product/${slug}`} className="bestcart_container">
       <section className="card_image">
         <img src={img} alt="" />
       </section>

@@ -11,8 +11,14 @@
   width: 100%;
   z-index: 9;
   @include flex(row, space-between, center, 0px);
+  @include responsive(400px) {
+    padding: 5px 15px;
+  }
   .logo_section {
     height: 100%;
+    @include responsive(300px) {
+      width: 70px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -22,8 +28,18 @@
 
   .link_sections {
     @include flex(row, null, center, 40px);
-    @include responsive(900px) {
-      display: none;
+
+    .link_sections_left {
+      @include flex(row, null, center, 40px);
+      @include responsive(900px) {
+        display: none;
+      }
+    }
+    .link_sections_right {
+      @include flex(row, null, center, 40px);
+      @include responsive(400px) {
+        gap: 20px;
+      }
     }
     .cart_link {
       position: relative;

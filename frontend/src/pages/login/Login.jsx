@@ -2,11 +2,13 @@ import './Login.scss';
 import login from '../../assets/login.png';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAction } from '../../redux/actions/authactions';
 const Login = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userInfo, loading, error } = useSelector((state) => state.aslice);
   const [fields, setFields] = useState({
     email: '',
     password: '',
@@ -20,27 +22,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const { data } = await axios.post(
-        'https://naturesave.vercel.app/api/v1/auth/login',
-        {
-          ...fields,
-        }
-      );
-      console.log(data);
-      if (data.success) {
-        toast.success('use loggedin successfully');
-        setFields({
-          email: '',
-          password: '',
-        });
-        navigate('/');
-      }
-    } catch (e) {
-      console.log(e);
-      toast.error(e.response.data.message);
-    }
+    dispatch(loginAction(fields));
   };
   return (
     <>
