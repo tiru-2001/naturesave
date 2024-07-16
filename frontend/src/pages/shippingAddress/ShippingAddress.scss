@@ -1,0 +1,100 @@
+@mixin respond-to($media) {
+	@if $media == "phone" {
+		@media (max-width: 564px) {
+			@content;
+		}
+	} @else if $media == "tablet" {
+		@media (max-width: 768px) {
+			@content;
+		}
+	} @else if $media == "desktop" {
+		@media (min-width: 1024px) {
+			@content;
+		}
+	}
+}
+
+.full_container{
+    background-color: #fbfaf0;
+	height: inherit;
+	padding: 60px;
+    // border: 2px solid red;
+	@include respond-to("tablet") {
+		padding: 0;
+	}
+	@include respond-to("phone") {
+		padding: 0;
+	}
+    .heading_section{
+        display: flex;
+		padding: 30px;
+        // border: 2px solid blue;
+        h2 {
+			font-size: 20px;
+			font-weight: 600;
+		}
+		@include respond-to("tablet") {
+			padding: none;
+		}
+		@include respond-to("phone") {
+			padding: none;
+		}
+    }
+    .form_section{
+        display: flex;
+		width: 100%;
+		box-shadow: inset;
+		align-items: center;
+		justify-content: center;
+        form{
+            display: flex;
+			flex-direction: column;
+			gap: 15px;
+			background-color: white;
+			padding: 20px;
+			color: gray;
+			@include respond-to("phone") {
+				width: 100%;
+			}
+			@include respond-to("tablet") {
+				width: 100%;
+			}
+            input {
+				background-color: rgb(241, 239, 239);
+				border: none;
+				height: 35px;
+				padding: 5px;
+			}
+            .same-line{
+               display: flex;
+				gap: 20px;
+				justify-content: space-between;
+				@include respond-to("phone") {
+					flex-direction: column;
+				}
+				@include respond-to("tablet") {
+					flex-direction: column;
+				}
+				.entries {
+					display: flex;
+					flex-direction: column;
+					gap: 15px;
+				} 
+            }
+            button{
+                padding: 10px 20px;
+			    height: max-content;
+			    width: max-content;
+			    font-size: 16px;
+			    background-color: #090351;
+			    color: white;
+			    border: none;
+			    border-radius: 5px;
+			    cursor: pointer;
+			    &:hover {
+				    background-color: #12087e;
+			    }
+            }
+        }
+    }
+}
